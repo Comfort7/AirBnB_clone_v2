@@ -1,29 +1,29 @@
 #!/usr/bin/python3
-"""Test for user"""
-import unittest
+""" """
+from tests.test_models.test_base_model import test_basemodel
 from models.review import Review
-from models.base_model import BaseModel
 
 
-class TestUser(unittest.TestCase):
+class test_review(test_basemodel):
     """ """
-    def test_instance_creation(self):
-        review = Review()
-        self.assertIsInstance(review, Review)
 
-    def test_attributes(self):
-        review = Review()
-        self.assertTrue(hasattr(review, 'place_id'))
-        self.assertEqual(review.place_id, "")
-        self.assertTrue(hasattr(review, 'user_id'))
-        self.assertEqual(review.user_id, "")
-        self.assertTrue(hasattr(review, 'text'))
-        self.assertEqual(review.text, "")
+    def __init__(self, *args, **kwargs):
+        """ """
+        super().__init__(*args, **kwargs)
+        self.name = "Review"
+        self.value = Review
 
-    def test_inheritance(self):
-        review = Review()
-        self.assertTrue(isinstance(review, BaseModel))
+    def test_place_id(self):
+        """ """
+        new = self.value()
+        self.assertEqual(type(new.place_id), str)
 
+    def test_user_id(self):
+        """ """
+        new = self.value()
+        self.assertEqual(type(new.user_id), str)
 
-if __name__ == '__main__':
-    unittest.main()
+    def test_text(self):
+        """ """
+        new = self.value()
+        self.assertEqual(type(new.text), str)

@@ -1,28 +1,19 @@
 #!/usr/bin/python3
-"""Test for State"""
-import unittest
+""" """
+from tests.test_models.test_base_model import test_basemodel
 from models.state import State
-from models.base_model import BaseModel
 
 
-class TestUser(unittest.TestCase):
+class test_state(test_basemodel):
     """ """
-    def test_instance_creation(self):
+
+    def __init__(self, *args, **kwargs):
         """ """
-        state = State()
-        self.assertIsInstance(state, State)
+        super().__init__(*args, **kwargs)
+        self.name = "State"
+        self.value = State
 
-    def test_attributes(self):
+    def test_name3(self):
         """ """
-        state = State()
-        self.assertTrue(hasattr(state, 'name'))
-        self.assertEqual(state.name, "")
-
-    def test_inheritance(self):
-        """ """
-        state = State()
-        self.assertTrue(isinstance(state, BaseModel))
-
-
-if __name__ == '__main__':
-    unittest.main()
+        new = self.value()
+        self.assertEqual(type(new.name), str)
