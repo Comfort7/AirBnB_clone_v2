@@ -1,7 +1,6 @@
-*.swp
-_pycache__/
-models/__pycache__
-models/engine/__pycache__/
-tests/test_models/__pycache__
-tests/test_models/test_engine/__pycache__
-
+__pycache__
+file.txt
+myvenv
+question.txt
+info.log
+.venv
